@@ -1,4 +1,4 @@
-https://travis-ci.org/LouisKnuckles/Zendesk_Ticket_Viewer.svg?branch=master
+[![Build Status](https://travis-ci.org/LouisKnuckles/Zendesk_Ticket_Viewer.svg?branch=master)](https://travis-ci.org/LouisKnuckles/Zendesk_Ticket_Viewer)
 # Description
 ### Build with Python Version 3.5.0
 This project is to build a command line tool that prints out Zendesk tickets using the Zendesk API.
