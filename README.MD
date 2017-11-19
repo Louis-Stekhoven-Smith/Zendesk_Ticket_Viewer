@@ -7,6 +7,7 @@ This project is to build a command line tool that prints out Zendesk tickets usi
 ### A step by step guide to getting the code working on your local
 
 Clone project to your local
+
 Note: remember to create a new [virtualenv]('https://virtualenv.pypa.io/en/stable/userguide/') before proceeding
 
 ### Install dependencies
