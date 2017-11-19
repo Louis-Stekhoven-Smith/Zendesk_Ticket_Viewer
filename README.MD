@@ -3,7 +3,7 @@
 ### Build with Python Version 3.5.0
 This project is to build a command line tool that prints out Zendesk tickets using the Zendesk API.
 
-#Project Setup
+# Project Setup
 ### A step by step guide to getting the code working on your local
 
 Clone project to your local
@@ -12,7 +12,7 @@ Note: remember to create a new [virtualenv]('https://virtualenv.pypa.io/en/stabl
 ### Install dependencies
 
 Linux/Mac
-'pip3 install -r requirements.txt'
+`pip3 install -r requirements.txt`
 
 Dependencies docs
 [zdesk](https://github.com/fprimex/zdesk/blob/master/README.md) - API Client used for making calls to Zendesk API
@@ -29,7 +29,7 @@ restart console after setting environment variables
 
 Currently nothing worth installing but if you wish you can download the code and run
 
-'python setup.py install'
+`python setup.py install`
 
 # Usage Instructions
 
