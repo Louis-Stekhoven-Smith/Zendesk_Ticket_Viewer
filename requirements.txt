@@ -1,4 +1,5 @@
 requests==2.18.4
 zdesk==2.6.0
 pytest==3.2.5
+setuptools==36.7.2
 

@@ -1,7 +1,7 @@
 # A test to check travis CI is working.
-import app.main
+import zendesk_ticket_viewer.main
 
 def test_dummyTest():
-    assert(app.main.placeholder())
+    assert(zendesk_ticket_viewer.main.placeholder())
 
 
