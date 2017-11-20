@@ -4,10 +4,12 @@ import sys
 from zendesk_ticket_viewer import ticket
 from tests.fixtures import example_zendeskTicket
 
+
 @pytest.fixture()
 def zendesk_ticket():
-     testTicket = ticket.ZendeskTicket(example_zendeskTicket.data())
-     return testTicket
+    testTicket = ticket.ZendeskTicket(example_zendeskTicket.data())
+    return testTicket
+
 
 @pytest.mark.unitTest
 def test_zendesk_ticket_init():
@@ -15,6 +17,7 @@ def test_zendesk_ticket_init():
     assert (zendesk_ticket().subject == 'Sample ticket: Meet the ticket')
     assert (zendesk_ticket().description == 'Hi this is a test ticket\n')
     assert (zendesk_ticket().updated_at == '2017-11-18T07:20:59Z')
+
 
 @pytest.mark.unitTest
 def test_zendesk_ticket_str():
@@ -26,4 +29,4 @@ def test_zendesk_ticket_str():
     assert '1' in capturedOutput.getvalue()
     assert 'Sample ticket: Meet the ticket' in capturedOutput.getvalue()
     assert 'Hi this is a test ticket\n' in capturedOutput.getvalue()
-    assert '2017-11-18T07:20:59Z' in capturedOutput.getvalue()# Now works as before.
+    assert '2017-11-18T07:20:59Z' in capturedOutput.getvalue()
