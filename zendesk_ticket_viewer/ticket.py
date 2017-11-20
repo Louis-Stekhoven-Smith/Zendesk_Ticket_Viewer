@@ -1,4 +1,6 @@
 import abc
+
+# Interface to be used for tickets
 class Ticket(metaclass=abc.ABCMeta):
 
     @abc.abstractmethod
@@ -9,6 +11,7 @@ class Ticket(metaclass=abc.ABCMeta):
     def __str__(self):
         pass
 
+#
 class ZendeskTicket(Ticket):
 
     def __init__(self,data):
