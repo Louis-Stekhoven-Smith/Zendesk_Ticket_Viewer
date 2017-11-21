@@ -13,10 +13,15 @@ class Ticket(metaclass=abc.ABCMeta):
 class ZendeskTicket(Ticket):
 
     def __init__(self, data):
-        self.id = data['ticket']['id']
-        self.subject = data['ticket']['subject']
-        self.description = data['ticket']['description']
-        self.updated_at = data['ticket']['updated_at']
+        try:
+            self.id = data['id']
+            self.subject = data['subject']
+            self.description = data['description']
+            self.updated_at = data['updated_at']
+
+        except KeyError:
+            print("Error - Zendesk changed ticket format, notify developer")
+            raise ValueError
 
     # Format's how data in the class is printed
     def __str__(self):
