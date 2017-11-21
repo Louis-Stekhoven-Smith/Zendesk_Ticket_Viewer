@@ -1,6 +1,12 @@
 from zdesk.zdesk import AuthenticationError
 from requests.exceptions import ConnectionError
-from tests.fixtures import example_output_all_tickets, example_zendeskTicket
+import json
+
+
+class Payload(object):
+    def __init__(self, j):
+        self.__dict__ = json.loads(j)
+
 class MockZdesk:
     def __init__(self, ZENDESK_SUBDOMAIN, ZENDESK_EMAIL_ADDRESS, ACCESS_TOKEN, is_token):
         self.ZENDESK_SUBDOMAIN = ZENDESK_SUBDOMAIN
@@ -15,7 +21,8 @@ class MockZdesk:
         if self.ZENDESK_SUBDOMAIN == 'NO_INTERNET_CONNECTION':
             raise ConnectionError
 
-        return example_output_all_tickets.data()
+        return {'tickets': 'this is a test'}
 
     def ticket_show(self, id):
-        return example_zendeskTicket
+        return {'ticket': 'this is a test'}
+

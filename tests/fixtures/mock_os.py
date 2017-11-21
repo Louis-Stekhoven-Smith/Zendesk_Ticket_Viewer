@@ -1,5 +1,5 @@
 from zendesk_ticket_viewer.api import ZENDESK_SUBDOMAIN,ZENDESK_EMAIL_ADDRESS,ZENDESK_ACCESS_TOKEN
-class MockOs:
+class mock_os:
 
     def __init__(self, token, email, subdomain):
         self.token = token

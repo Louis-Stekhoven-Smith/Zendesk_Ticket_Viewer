@@ -17,11 +17,11 @@ class Api(metaclass=abc.ABCMeta):
         pass
 
     @abc.abstractmethod
-    def all_tickets(self):
+    def all_tickets(self) -> bool:
         pass
 
     @abc.abstractmethod
-    def single_ticket(self):
+    def single_ticket(self) -> bool:
         pass
 
 
@@ -48,17 +48,28 @@ class ZendeskApi(Api):
         # Test if the authentication/connection was successful
         if cls.make_request(cls.connection.tickets_list, None) is not False:
             return True
+
         return False
 
     # Returns all existing tickets from currently authenticated account
     @classmethod
     def all_tickets(cls):
-        return cls.make_request(cls.connection.tickets_list, None)
+        response = cls.make_request(cls.connection.tickets_list, None)
+
+        if response is False:
+            return False
+
+        return response['tickets']
 
     # Returns a single ticket found by id
     @classmethod
     def single_ticket(cls, id):
-        return cls.make_request(cls.connection.ticket_show, id)
+        response = cls.make_request(cls.connection.ticket_show, id)
+
+        if response is False:
+            return False
+
+        return response['ticket']
 
     # Helpers
     @classmethod
@@ -71,6 +82,7 @@ class ZendeskApi(Api):
         if (cls.access_token is None or cls.zendesk_email_address is None
            or cls.zendesk_subdomain is None):
             return False
+
         return True
 
     # Attempts to process an api request and handle any errors raised by the zendesk api wrapper
@@ -79,25 +91,28 @@ class ZendeskApi(Api):
         try:
             if(params is None):
                 return request()
+
             return request(params)
 
         except AuthenticationError as e:
-            print(e)
-            print("\nFailed to connect - Incorrect authentication details.")
+            print("\nIncorrect authentication details - See raw response for more information")
+            print("%s %s" % ('Raw response: ', e))
             return False
 
         except ZendeskError as e:
-
-            print("\nBad HTTP response - See raw response for more information.")
-            print("%s %s" % ('\nRaw response: ', e))
+            print("\nBad HTTP response - See raw response for more information.\n")
+            print("%s %s" % ('Raw response: ', e))
             return False
 
         except ConnectionError as e:
-            print(e)
-            print("\nFailed to connect - No internet connection.")
+            print("\nNo internet connection - See raw response for more information.")
+            print("%s %s" % ('Raw response: ', e))
             return False
 
         except RateLimitError as e:
-            print(e)
-            print("\nFailed to connect - Rate limit Reached .")
+            print("\nRate limit Reached - See raw response for more information.")
+            print("%s %s" % ('Raw response: ', e))
             return False
+
+        print('Unknown error encounted when making api request')
+        return False
