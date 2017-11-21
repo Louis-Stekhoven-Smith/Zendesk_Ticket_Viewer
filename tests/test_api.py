@@ -1,71 +1,77 @@
 import pytest
 from zendesk_ticket_viewer.api import ZendeskApi
 from tests.fixtures.mock_zdesk import MockZdesk
-from tests.fixtures.mock_os import MockOs
-from tests.fixtures import example_output_all_tickets
+from tests.fixtures.mock_os import mock_os
+
 
 @pytest.fixture
-def Zdesk():
-    Zdesk = MockZdesk
-    return Zdesk
+def zdesk():
+    zdesk_object = MockZdesk
+    return zdesk_object
+
 
 @pytest.fixture
 def os():
-    os = MockOs('1234asdf', 'test@sample.com', 'www.test.com')
-    return os
-
-@pytest.mark.unitTest
-def test_connect_succeed(os, Zdesk):
-        assert ZendeskApi.attempt_connection(os, Zdesk) == True
+    osObject = mock_os('1234asdf', 'test@sample.com', 'www.test.com')
+    return osObject
 
 
 @pytest.mark.unitTest
-def test_connect_fail_incorrect_password(os, Zdesk):
+def test_connect_succeed(os, zdesk):
+        assert ZendeskApi.attempt_connection(os, zdesk) is True
+
+
+@pytest.mark.unitTest
+def test_connect_fail_incorrect_password(os, zdesk):
         os.token = '1234asd'
-        assert ZendeskApi.attempt_connection(os, Zdesk) == False
+        assert ZendeskApi.attempt_connection(os, zdesk) is False
+
 
 @pytest.mark.unitTest
-def test_connect_fail_incorrect_email(os, Zdesk):
+def test_connect_fail_incorrect_email(os, zdesk):
         os.email = 'wrong@email.com'
-        assert ZendeskApi.attempt_connection(os, Zdesk) == False
+        assert ZendeskApi.attempt_connection(os, zdesk) is False
+
 
 @pytest.mark.unitTest
-def test_connect_fail_incorrect_subdomain(os, Zdesk):
+def test_connect_fail_incorrect_subdomain(os, zdesk):
         os.subdomain = 'www.wrongaddress.com.au'
-        assert ZendeskApi.attempt_connection(os, Zdesk) == False
+        assert ZendeskApi.attempt_connection(os, zdesk) is False
+
 
 @pytest.mark.unitTest
-def test_connect_fail_no_internet_connect(os, Zdesk):
+def test_connect_fail_no_internet_connect(os, zdesk):
         os.subdomain = 'NO_INTERNET_CONNECTION'
-        assert ZendeskApi.attempt_connection(os, Zdesk) == False
+        assert ZendeskApi.attempt_connection(os, zdesk) is False
 
 
 @pytest.mark.unitTest
-def test_setCredentials_success(os):
+def test_set_credentials_success(os):
     ZendeskApi.set_credentials(os)
-    assert ZendeskApi.access_token == '1234asdf'
+    assert ZendeskApi.access_token is '1234asdf'
     assert ZendeskApi.zendesk_email_address == 'test@sample.com'
     assert ZendeskApi.zendesk_subdomain == 'www.test.com'
 
 
+# TODO Currently not sure how I can create a test for this
 @pytest.mark.unitTest
-def test_setCredentials_incorrect_system_var_names(os):
-    #TODO Currently not sure how I can create a test for this
-    NotImplemented
+def test_set_credentials_incorrect_system_var_names():
+    return NotImplemented
 
-
-@pytest.mark.unitTest
-def test_all_tickets(os, Zdesk):
-    ZendeskApi.attempt_connection(os, Zdesk)
-    assert ZendeskApi.all_tickets() == example_output_all_tickets.data()
 
 @pytest.mark.unitTest
-def test_asingle_ticket(os, Zdesk):
-    id = 1
-    ZendeskApi.attempt_connection(os, Zdesk)
-    assert ZendeskApi.single_ticket(id)
+def test_all_tickets(os, zdesk):
+    ZendeskApi.attempt_connection(os, zdesk)
+    assert ZendeskApi.all_tickets() == 'this is a test'
 
-#TODO Implement tests for bad HTTP responses #
 
-#TODO Implement test for single_ticket
+@pytest.mark.unitTest
+def test_asingle_ticket(os, zdesk):
+    id_number = 1
+    ZendeskApi.attempt_connection(os, zdesk)
+    assert ZendeskApi.single_ticket(id_number)
+
+# TODO Implement tests for bad HTTP responses #
+
+# TODO Implement test for single_ticket
 #  Not currently sure how to best go about doing this.

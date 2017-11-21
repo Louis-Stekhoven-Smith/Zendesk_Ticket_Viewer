@@ -28,10 +28,10 @@ def test_zendesk_ticket_init_fail(zendesk_ticket):
 
 @pytest.mark.unitTest
 def test_zendesk_ticket_str(zendesk_ticket):
-    capturedOutput = io.StringIO()  # Create StringIO object
-    sys.stdout = capturedOutput  # and redirect stdout.
-    print(zendesk_ticket)  # Call function.
-    sys.stdout = sys.__stdout__  # Reset redirect.
+    capturedOutput = io.StringIO()
+    sys.stdout = capturedOutput
+    print(zendesk_ticket)
+    sys.stdout = sys.__stdout__
 
     assert '1' in capturedOutput.getvalue()
     assert 'Sample ticket: Meet the ticket' in capturedOutput.getvalue()
