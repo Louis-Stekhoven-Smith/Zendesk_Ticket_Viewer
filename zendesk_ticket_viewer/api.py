@@ -2,6 +2,20 @@ import abc
 from zdesk.zdesk import AuthenticationError, ZendeskError, RateLimitError
 from requests.exceptions import ConnectionError
 
+''' Module description
+ Deals with Zdesk (api wrapper) calls and prepares authentication details
+ 
+ currently implements 
+    ticket_show
+    ticket_list
+    
+ Handles custom exceptions raised by Zdesk
+    AuthenticationError
+    ZendeskError
+    ConnectionError
+    
+Uses os.getev to get authentication details from the local environment variables
+'''
 
 # Environment variables used for authentication
 ZENDESK_ACCESS_TOKEN = 'ZENDESK_ACCESS_TOKEN'

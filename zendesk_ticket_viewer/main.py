@@ -3,6 +3,12 @@ from zendesk_ticket_viewer.api import ZendeskApi
 from zdesk import Zendesk
 import os
 
+''' Module description
+ The entry point for the application drives core functionality:
+ Display a single zendesk ticket
+ Display all zendesk tickets 
+'''
+
 BORDER = '==================================================='
 DISPLAY_SINGLE_TICKET = '1'
 DISPLAY_ALL_TICKETS = '2'

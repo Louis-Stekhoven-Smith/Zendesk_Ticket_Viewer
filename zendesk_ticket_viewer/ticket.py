@@ -1,4 +1,16 @@
 import abc
+
+''' Module description
+ Handles formatting the api data received from zendesk into a user friendly format
+ Format's for display:
+    date
+    subject
+    description
+    updated_at
+    
+Throws away all other data
+'''
+
 BORDER = '==================================================='
 
 
