@@ -52,6 +52,7 @@ def display_single_ticket():
 
     display(raw_response)
 
+
 # Handles getting all tickets raw data from the Zendesk api and then attempts to display them
 def display_all_tickets():
     all_tickets_raw_data = ZendeskApi.all_tickets()
@@ -84,5 +85,5 @@ def main_menu():
                                                    BORDER))
 
 
-if __name__ == "__main__":
+if __name__ == '__main__':
     main()
