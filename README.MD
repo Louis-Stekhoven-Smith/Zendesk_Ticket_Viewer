@@ -31,9 +31,7 @@ Installs dependencies for youLinux/Mac
 ### Set Environment Variables
 
 export ZENDESK_ACCESS_TOKEN = 'your_token'
-
 export ZENDESK_EMAIL_ADDRESS = 'your_email_address'
-
 export ZENDESK_SUBDOMAIN = 'your_subdomain'
 
 
@@ -56,14 +54,12 @@ You should now be able to development this project
 
 To install for use in command line
 
-`pip install zendesk_ticket_viewer'
+`pip install zendesk_ticket_viewer`
 
- Download the src files from here. 
+Download the src files from here. 
  
 export ZENDESK_ACCESS_TOKEN = 'your_token'
-
 export ZENDESK_EMAIL_ADDRESS = 'your_email_address'
-
 export ZENDESK_SUBDOMAIN = 'your_subdomain'
 
 
