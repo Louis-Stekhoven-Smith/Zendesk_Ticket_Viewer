@@ -56,7 +56,7 @@ To install for use in command line
 
 `pip install zendesk_ticket_viewer`
 
-Download the src files from here. 
+Download the src files from [here](https://github.com/LouisKnuckles/Zendesk_Ticket_Viewer/releases/tag/v1.0). 
  
 * export ZENDESK_ACCESS_TOKEN = 'your_token'
 * export ZENDESK_EMAIL_ADDRESS = 'your_email_address'
