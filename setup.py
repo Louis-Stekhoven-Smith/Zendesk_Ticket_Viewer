@@ -5,7 +5,7 @@ rootdir = os.path.abspath(os.path.dirname(__file__))
 
 setup(
     name='zendesk_ticket_viewer',
-    version=0.4,
+    version=0.5,
     description='A command line tool to view Zendesk tickets',
     long_description= open(os.path.join(rootdir,'DESCRIPTION.rst')).read(),
     author='Louis Stekhoven-Smith',
