@@ -22,9 +22,11 @@ To activate the new enviroment cd into the directory you just created e.g "env-n
 ### Install dependencies
 
  Make sure pip is installed 
+ 
  `pip install -U pip`
  
-Installs dependencies for youLinux/Mac
+Install the projects dependencies 
+
 `pip3 install -r requirements.txt`
 
 
@@ -37,18 +39,17 @@ Installs dependencies for youLinux/Mac
 
 restart console after setting environment variables
 
-You also want to make sure you are running python 3.0 or higher 
-To check your current version
+You also want to make sure you are running python 3.0 or higher .To check your current version run
 
-`python -V'
+`python -V`
 
-The easyist way to install python for mac is to use [homebrew]('https://brew.sh/')
+The easiest way to install python for mac is to use [homebrew]('https://brew.sh/')
 
-Then run
+Then  simply run
 
-'brew install python3'
+'brew install python3`
 
-You should now be able to development this project
+You should now be good to get development!! YAY
 
 # Installation
 
