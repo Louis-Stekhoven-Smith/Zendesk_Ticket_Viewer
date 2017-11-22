@@ -13,10 +13,10 @@ Note: remember to create a new [virtualenv]('https://virtualenv.pypa.io/en/stabl
 
 To create a new virtual enviroment run 
 
-'python virtualenv.py "env-name"'
+`python virtualenv.py "env-name"`
 
 To activate the new enviroment cd into the directory you just created e.g "env-name" and run
-'source Scripts/activate
+`source Scripts/activate`
 
 
 ### Install dependencies
