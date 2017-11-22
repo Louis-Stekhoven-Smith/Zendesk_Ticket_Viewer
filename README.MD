@@ -43,7 +43,7 @@ You also want to make sure you are running python 3.0 or higher .To check your c
 
 `python -V`
 
-The easiest way to install python for mac is to use [homebrew]('https://brew.sh')
+The easiest way to install python for mac is to use  homebrew --- https://brew.sh
 
 Then  simply run
 
