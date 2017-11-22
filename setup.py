@@ -1,4 +1,4 @@
-from setuptools import setup, find_packages
+from setuptools import setup
 
 setup(
     name='zendesk_ticket_viewer',
@@ -7,7 +7,8 @@ setup(
     long_description='Displayed on pyPi project page.',
     author='Louis Stekhoven-Smith',
     author_email='louis.stekhoven@gmail.com',
-    packages=find_packages(),
+    packages=['zendesk_ticket_viewer'],
     install_requires=['requests','zdesk','pytest','setuptools'],
-    license='GPL-3.0'
+    license='GPL-3.0',
+    zip_safe=False
 )
