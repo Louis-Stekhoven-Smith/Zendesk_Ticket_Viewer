@@ -16,7 +16,7 @@ To create a new virtual enviroment run
 'python virtualenv.py "env-name"'
 
 To activate the new enviroment cd into the directory you just created e.g "env-name" and run
-'cd Scripts\activate
+'source Scripts/activate
 
 
 ### Install dependencies
