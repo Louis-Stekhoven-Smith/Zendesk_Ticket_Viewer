@@ -60,7 +60,7 @@ class ZendeskApi(Api):
             Zendesk(cls.zendesk_subdomain, cls.zendesk_email_address, cls.access_token, True)
 
         # Test if the authentication/connection was successful
-        if cls.make_request(cls.connection.tickets_list, None) is not False:
+        if cls.make_request(cls.connection.tickets_list, None) is False:
             return True
 
         return False

@@ -13,7 +13,6 @@ BORDER = '==================================================='
 DISPLAY_SINGLE_TICKET = '1'
 DISPLAY_ALL_TICKETS = '2'
 EXIT = '9'
-CONNECTION_ERROR_MSG = ''
 
 
 def main():
@@ -71,7 +70,6 @@ def display(raw_response):
         print(formatted_ticket)
         return True
     except ValueError:
-        pass
         return False
 
 
