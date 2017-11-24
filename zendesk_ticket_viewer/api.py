@@ -61,9 +61,9 @@ class ZendeskApi(Api):
 
         # Test if the authentication/connection was successful
         if cls.make_request(cls.connection.tickets_list, None) is False:
-            return True
+            return False
 
-        return False
+        return True
 
     # Returns all existing tickets from currently authenticated account
     @classmethod
