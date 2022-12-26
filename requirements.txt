@@ -31,5 +31,5 @@ sphinxcontrib-websupport==1.0.1
 tornado==4.5.2
 urllib3==1.22
 watchdog==0.8.3
-wheel==0.30.0
+wheel==0.38.1
 zdesk==2.6.0
