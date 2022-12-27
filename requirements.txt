@@ -1,7 +1,7 @@
 requests==2.18.4
 zdesk==2.6.0
 pytest==3.2.5
-setuptools==36.7.2
+setuptools==65.5.1
 alabaster==0.7.10
 argh==0.26.2
 Babel==2.5.1
